@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Response</title>
+</head>
+<body>
+  <h1>Email Response</h1>
+  <div id="response"></div>
+
+  <script>
+    fetch('/send-email')
+      .then(response => response.text())
+      .then((message) => {
+        document.getElementById('response').innerHTML = `<b>${message}</b>`;
+      })
+      .catch((error) => {
+        document.getElementById('response').innerHTML = `<b>Error: ${error}</b>`;
+      });
+  </script>
+</body>
+</html>
